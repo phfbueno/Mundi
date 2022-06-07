@@ -1,0 +1,37 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="container-fluid bg-dark text-light p-5 mb-3">
+                <h1 class="display-4">Novo Pedidos</h1>
+            </div>
+
+            <form action="/pedido/novo" method="POST">
+                <div class="form-group mb-3">
+                    <label for="nomeProduto">Produto</label>
+                    <input type="text" class="form-control" placeholder="Nome do Produto"  name="nomeProduto" id="nomeProduto" aria-describedby="produtoNameHelp">
+                    <small id="produtoNameHelp" class="form-text text-muted">Informe qual o nome do produto.</small>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="urlProduto">Url Produto</label>
+                    <input type="text" class="form-control" placeholder="URL do Produto" name="urlProduto" id="urlProduto" aria-describedby="urlProdutoHelp">
+                    <small id="urlProdutoHelp" class="form-text text-muted">Coloque o Link do produto.</small>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="urlImagem">Url Imagem</label>
+                    <input type="text" class="form-control" placeholder="Imagem do Produto" name="urlImagem" id="urlImagem" aria-describedby="urlImagemProdutoHelp">
+                    <small id="urlImagemProdutoHelp" class="form-text text-muted">Coloque o link da imagem do produto.</small>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="descricao">Descrição do produto</label>
+                    <textarea  class="form-control" id="descricao"  name="descricao" placeholder="Coloque detalhes importantes para ajudar o Comprador"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+    </body>
+</html>

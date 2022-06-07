@@ -16,11 +16,22 @@ public class Pedido {
     @Column()
     private Long id;
 
+    @Column(name = "nome_produto")
     private String nomeProduto;
+
+    @Column(name = "valor_negociado")
     private BigDecimal valorNegociado;
+
+    @Column(name = "data_entrega")
     private LocalDate dataEntrega;
+
+    @Column(name = "url_produto")
     private String urlProduto;
+
+    @Column(name = "url_imagem")
     private String urlImagem;
+
+    @Column(name = "descricao")
     private String descricao;
 
 }
