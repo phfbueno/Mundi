@@ -1,32 +1,38 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    </head>
+    <head th:replace="~{base :: head}"></head>
     <body>
-        <div class="container">
+        <div class="logo-container mb-3 p-3 d-flex justify-content-between">
+            <span class="logo">mudi</span>
+            <span class="mt-3">login</span>
+        </div>
+
+        <div class="container" >
             <div class="container-fluid bg-dark text-light p-5">
                 <h1 class="display-4">Meus Pedidos</h1>
             </div>
-
             <nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="">Todos</a>
-                    <a class="nav-item nav-link" href="">Aguardando</a>
-                    <a class="nav-item nav-link" href="">Aprovado</a>
-                    <a class="nav-item nav-link" href="">Entregue</a>
+                    <a th:classappend="${status} == null ? 'active'" class="nav-item nav-link" href="/home">Todos</a>
+                    <a th:classappend="${status} == 'aguardando' ? 'active'" class="nav-item nav-link" href="/home/aguardando">Aguardando</a>
+                    <a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-item nav-link" href="/home/aprovado">Aprovado</a>
+                    <a th:classappend="${status} == 'entregue' ? 'active'" class="nav-item nav-link" href="/home/entregue">Entregue</a>
                 </div>
                 <a href="/pedido/formulario"><button class="btn btn-outline-secondary my-2 my-sm-0">Novo</button></a>
             </nav>
-            <div class="card" th:each="pedido : ${pedidos}">
-                <div  class="card-header" th:text="${pedido.nomeProduto}">Nome do Produto</div>
+            <div class="card mb-3" th:each="pedido : ${pedidos}">
+
+                <th:block th:switch="${pedido.statusPedido.name()}">
+                    <div th:case="'AGUARDANDO'" class="card-header alert-warning" th:text="${pedido.nomeProduto}">Nome do Produto</div>
+                    <div th:case="'APROVADO'" class="card-header alert-success" th:text="${pedido.nomeProduto}">Nome do Produto</div>
+                    <div th:case="'ENTREGUE'" class="card-header alert-dark" th:text="${pedido.nomeProduto}">Nome do Produto</div>
+                </th:block>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-sm-8 mb-3">
-                            <div class="row">
-                                <div class="col-md-5">Valor: <span  th:text="${pedido.valorNegociado}">200,99</span></div>
-                                <div class="col-md-7">Data da Entrega: <span  th:text="${pedido.dataEntrega}">10/02/2022</span></div>
+                            <div class="row ">
+                                <div class="col-md-5">Valor: <span th:if="${pedido.valorNegociado} != null" th:text="${'R$ ' + #numbers.formatDecimal(pedido.valorNegociado, 3, 'POINT', 2, 'COMMA')}">200,99</span></div>
+                                <div class="col-md-6">Data da entrega: <span th:text="${#temporals.format(pedido.dataEntrega, 'dd/MM/yyyy')}">10/02/2020</span></div>
                             </div>
                             <div>Produto</div>
                             <div> <input class="form-control"  th:value="${pedido.urlProduto}" value="URL do Produto" /></div>

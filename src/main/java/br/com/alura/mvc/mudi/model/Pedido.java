@@ -1,5 +1,6 @@
 package br.com.alura.mvc.mudi.model;
 
+import br.com.alura.mvc.mudi.enums.StatusPedido;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,5 +34,9 @@ public class Pedido {
 
     @Column(name = "descricao")
     private String descricao;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status_pedido")
+    private StatusPedido statusPedido;
 
 }
