@@ -39,4 +39,7 @@ public class Pedido {
     @Column(name = "status_pedido")
     private StatusPedido statusPedido;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private  Usuario usuario;
+
 }

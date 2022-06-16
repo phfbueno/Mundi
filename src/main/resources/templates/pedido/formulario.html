@@ -7,7 +7,7 @@
                 <h1 class="display-4">Novo Pedidos</h1>
             </div>
             <div class="card mb-3">
-                <form th:object="${requisicaoNovoPedidoDto}" action="/pedido/novo" method="POST">
+                <form th:object="${requisicaoNovoPedidoDto}"  th:action="@{/pedido/novo}" method="POST">
                     <div class="form-group mb-3">
                         <label>Produto</label>
                         <input  th:field="*{nomeProduto}" type="text" class="form-control" th:errorclass="is-invalid" placeholder="Nome do Produto"  aria-describedby="produtoNameHelp">
