@@ -10,6 +10,9 @@ Algumas Tecnologias utilizadas nesse projeto:
   - Spring MVC
   - AJAX
   - VueJS
+  - MySql
+  - BootStrap
+  - Thymeleaf 
  <br/>
  
 ![Spring-6DB33F_style=for-the-badge logo=spring logoColor=white](https://user-images.githubusercontent.com/17580966/176014372-54bd8237-9cba-43b1-9507-e2546c6da820.png)
