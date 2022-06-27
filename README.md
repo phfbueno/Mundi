@@ -10,6 +10,8 @@ Algumas Tecnologias utilizadas nesse projeto:
   - Spring MVC
   - AJAX
   - VueJS
+ <br/>
+ 
 ![Spring-6DB33F_style=for-the-badge logo=spring logoColor=white](https://user-images.githubusercontent.com/17580966/176014372-54bd8237-9cba-43b1-9507-e2546c6da820.png)
 ![MySQL-00000F_style=for-the-badge logo=mysql logoColor=white](https://user-images.githubusercontent.com/17580966/176014391-4a58be87-b8fd-42f7-a149-1df70beee9c4.png)
 ![Vue js-35495E_style=for-the-badge logo=vue](https://user-images.githubusercontent.com/17580966/176014409-c0cc36eb-2a32-4c4a-adb3-ae2aeed3b518.png)
